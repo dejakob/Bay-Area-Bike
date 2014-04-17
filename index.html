@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Bay Area Bike Share</title>
+    <link rel="stylesheet" href="style/style.css"/>
+    <script type="text/javascript" src="script/jquery.js"></script>
+    <script type="text/javascript" src="script/knockout.js"></script>
+    <script type="text/javascript" src="script/geo.js"></script>
+    <script type="text/javascript" src="script/script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+</head>
+<body>
+    <article>
+        <h1>Bay Area Bike Share</h1>
+        <ul id="tabs">
+            <li id="home">
+                <ul id="stations" data-bind="foreach: stations">
+                    <li data-bind="click: $root.showDetails">
+                        <h2 data-bind="text: stationName"></h2>
+                        <p data-bind="text: distance"></p>
+                        <div class="bikes">
+                            <span class="available" data-bind="text: availableDocks"></span> /
+                            <span data-bind="text: totalDocks"></span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <!-- ko if: selectedStation -->
+            <li id="details" data-bind="with: selectedStation">
+                <h2 data-bind="text: stationName"></h2>
+                <a href="#" data-bind="attr: {href: maplink}">
+                    <img src="#" alt="Google map" data-bind="attr: {src: map}"/>
+                </a>
+                <p><span class="available" data-bind="text: availableDocks"></span> available bikes</p>
+                <p><span data-bind="text: totalDocks"></span> available docks</p>
+                <button data-bind="click: $root.goBack">Back to list</button>
+            </li>
+            <!-- /ko -->
+        </ul>
+    </article>
+    <div id="overlay">
+        Loading... <br/>
+        Please make it possible for us to find your location...
+    </div>
+</body>
+</html>

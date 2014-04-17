@@ -1,0 +1,112 @@
+@blue: #016ed3;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  font-family: "Trebuchet MS", "Trebuchet", serif;
+}
+
+article {
+  border: 2px @blue solid;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  > h1 {
+    background-color: @blue;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+  }
+}
+
+#stations {
+  overflow-y: auto;
+  > li {
+    padding: 10px;
+    border-bottom: 1px #ccc solid;
+    position: relative;
+    &:hover {
+      background-color: #f7e9ba;
+      cursor: pointer;
+    }
+    > p {
+      font-size: 13px;
+      color: #aaa;
+      padding-top: 5px;
+    }
+  }
+  h2 {
+    font-size: 16px;
+  }
+}
+
+.bikes {
+  position: absolute;
+  right: 10px;
+  top: 22px;
+}
+
+.available {
+  color: @blue;
+  font-weight: bold;
+}
+
+#tabs {
+  width: 200%;
+  > li {
+    height: 100%;
+    width: 50%;
+    float: left;
+  }
+}
+
+#details {
+  > h2 {
+    margin: 20px;
+  }
+  > a {
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+  > p {
+    margin-left: 20px;
+  }
+  button {
+    margin-top: 20px;
+    background-color: #ccc;
+    color: #666;
+    width: 100%;
+    padding: 10px 0px 10px 20px;
+    border: none;
+    text-align: left;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+  }
+}
+
+#overlay {
+  height: 80px;
+  width: 180px;
+  border: 2px @blue solid;
+  border-radius: 10px;
+  position: fixed;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  padding: 10px;
+  margin-left: -100px;
+  margin-top: -50px;
+}
